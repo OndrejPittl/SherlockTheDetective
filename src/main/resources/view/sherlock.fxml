@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane minHeight="300.0" minWidth="400.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.zcu.kiv.nlp.ir.trec.view.controllers.SherlockController">
+    <children>
+        <VBox>
+            <children>
+                <MenuBar VBox.vgrow="NEVER">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="URL">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleClearUrlsClick" text="Clear all" />
+                            </items>
+                        </Menu>
+
+                        <Menu mnemonicParsing="false" text="Results">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#handleExportClick" text="Export" />
+                            </items>
+                        </Menu>
+
+                        <Menu mnemonicParsing="false" text="Help">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About Sherlock" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <center>
+                                <GridPane BorderPane.alignment="CENTER">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <BorderPane fx:id="urlListViewContainer" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+                                            <center>
+                                                <fx:include fx:id="urlListView" source="partial/UrlListView.fxml" />
+                                            </center>
+                                        </BorderPane>
+                                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                            <center>
+                                                <fx:include fx:id="resultsListView" source="partial/documentListView.fxml" />
+                                            </center>
+                                        </BorderPane>
+                                    </children>
+                                </GridPane>
+                            </center>
+                            <bottom>
+                                <FlowPane alignment="CENTER" BorderPane.alignment="CENTER">
+                                    <padding>
+                                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                                    </padding>
+                           <children>
+                              <Label text="www.ondrejpittl.cz">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                                </FlowPane>
+                            </bottom>
+                        </BorderPane>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+      <VBox fx:id="loaderOverlay" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="loader-overlay" visible="false" StackPane.alignment="CENTER" />
+    </children>
+</StackPane>

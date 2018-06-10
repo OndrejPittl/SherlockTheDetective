@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane fx:id="root" style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.zcu.kiv.nlp.ir.trec.view.controllers.UrlListViewController">
+    <top>
+        <BorderPane style="-fx-background-color: #ddd;" BorderPane.alignment="CENTER">
+            <bottom>
+                <FlowPane style="-fx-background-color: #aaa;" BorderPane.alignment="CENTER">
+                    <children>
+                        <CheckBox fx:id="deepMiningCheckbox" mnemonicParsing="false" text="deep mining" />
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+                </FlowPane>
+            </bottom>
+            <center>
+                <BorderPane prefHeight="40.0" BorderPane.alignment="CENTER">
+                    <center>
+                        <TextField fx:id="urlInputField" BorderPane.alignment="CENTER" />
+                    </center>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                    </padding>
+               <right>
+                  <HBox BorderPane.alignment="CENTER">
+                     <children>
+                         <Button fx:id="urlInputBtn" mnemonicParsing="false" onAction="#handleAddUrlBtnClick" text="+">
+                             <padding>
+                                 <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                             </padding>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" top="1.0" />
+                           </HBox.margin>
+                         </Button>
+                        <Button fx:id="run" mnemonicParsing="false" onAction="#handleRunClick" text="RUN">
+                           <HBox.margin>
+                              <Insets top="1.0" />
+                           </HBox.margin>
+                           <styleClass>
+                              <String fx:value="btn" />
+                              <String fx:value="btn--run" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </HBox>
+               </right>
+                </BorderPane>
+            </center>
+        </BorderPane>
+    </top>
+<center>
+    <ListView fx:id="urlListView" editable="true" styleClass="url-list" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+</center>
+</BorderPane>
